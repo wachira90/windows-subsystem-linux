@@ -1,30 +1,29 @@
-
-#ENABLE Windows-Subsystem-Linux
+# ENABLE Windows-Subsystem-Linux
 
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 
-#REBOOT
+# REBOOT
 
-#Manually download Windows Subsystem for Linux distro packages
+# Manually download Windows Subsystem for Linux distro packages
 
 https://docs.microsoft.com/en-us/windows/wsl/install-manual
 
-#Download using PowerShell
+# Download using PowerShell
 
 Invoke-WebRequest -Uri https://aka.ms/wsl-ubuntu-1604 -OutFile Ubuntu.appx -UseBasicParsing
 
-#Download using curl
+# Download using curl
 
 curl.exe -L -o ubuntu-1604.appx https://aka.ms/wsl-ubuntu-1604
 
-#Installing your distro
+# Installing your distro
 
 Add-AppxPackage .\app_name.appx
 
 
 https://wslstorestorage.blob.core.windows.net/wslblob/Ubuntu_1804.2019.522.0_x64.appx
 
-#RENAME AND EXTRACT
+# RENAME AND EXTRACT
 
 Rename-Item .\Ubuntu_1804.2019.522.0_x64.appx .\Ubuntu_1804.2019.522.0_x64.zip
 
@@ -39,7 +38,7 @@ $userenv = [System.Environment]::GetEnvironmentVariable("Path", "User")
 
 Lunch => ubuntu.exe
 
-#FILE LOCATION
+# FILE LOCATION
 
 C:\Users\NAME\AppData\Local\Packages\DISTRO_FOLDER\LocalState\rootfs
 
@@ -54,8 +53,10 @@ apt update
 
 apt install nginx git -y
 
-#STOP
+# STOP
+
 sudo killall -9 nginx
 
-#START
+# START
+
 nginx
